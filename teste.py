@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ========= FUNÇÃO BASE64 =========
+# ========= FUNÇÃO =========
 def get_base64_image(path):
     with open(path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
@@ -21,71 +21,72 @@ netflix = get_base64_image("netflix.png")
 st.markdown("""
 <style>
 
-html, body, [class*="css"] {
-    background-color: #0f1117;
-    color: white;
-    font-family: Arial;
+.stApp{
+    background-color: #0b1020;
 }
 
 /* TÍTULO */
-.titulo {
-    font-size: 42px;
+.titulo{
+    font-size: 52px;
     font-weight: bold;
+    color: white;
     margin-bottom: 5px;
 }
 
-.subtitulo {
-    color: #a0a0a0;
+.subtitulo{
+    color: #b3b3b3;
+    font-size: 18px;
     margin-bottom: 40px;
 }
 
 /* CARD */
-.card {
-    background-color: #181c24;
-    border-radius: 18px;
-    padding: 15px;
+.card{
+    background: #161b2e;
+    border-radius: 20px;
+    padding: 18px;
     transition: 0.3s;
-    height: 100%;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
 }
 
-.card:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 0px 20px rgba(255,255,255,0.1);
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.6);
 }
 
 /* IMAGEM */
-.card img {
+.card img{
     width: 100%;
     border-radius: 15px;
     margin-bottom: 15px;
 }
 
-/* TITULO CARD */
-.nome {
-    font-size: 24px;
+/* NOME */
+.nome{
+    color: white;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 /* DESCRIÇÃO */
-.desc {
-    color: #b0b0b0;
+.desc{
+    color: #cfcfcf;
     font-size: 16px;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
 }
 
 /* BOTÃO */
-.botao {
+.botao{
     background-color: #2563eb;
-    color: white;
+    color: white !important;
     padding: 10px 20px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
 }
 
-.botao:hover {
+.botao:hover{
     background-color: #1d4ed8;
 }
 
@@ -95,18 +96,18 @@ html, body, [class*="css"] {
 # ========= TÍTULO =========
 st.markdown("""
 <div class="titulo">
-    Empresas Parceiras -
+Empresas Parceiras -
 </div>
 
 <div class="subtitulo">
-    Conheça algumas empresas de tecnologia
+Conheça algumas empresas de tecnologia
 </div>
 """, unsafe_allow_html=True)
 
 # ========= COLUNAS =========
 col1, col2, col3 = st.columns(3)
 
-# ========= CARD 1 =========
+# ========= SPACEX =========
 with col1:
     st.markdown(f"""
     <div class="card">
@@ -114,23 +115,23 @@ with col1:
         <img src="data:image/png;base64,{spacex}">
 
         <div class="nome">
-            🚀 SpaceX
+        🚀 SpaceX
         </div>
 
         <div class="desc">
-            Empresa de exploração espacial fundada por Elon Musk.
+        Empresa de exploração espacial fundada por Elon Musk.
         </div>
 
         <a class="botao"
-           href="https://www.spacex.com/"
-           target="_blank">
-           Acessar
+        href="https://www.spacex.com/"
+        target="_blank">
+        Acessar
         </a>
 
     </div>
     """, unsafe_allow_html=True)
 
-# ========= CARD 2 =========
+# ========= APPLE =========
 with col2:
     st.markdown(f"""
     <div class="card">
@@ -138,23 +139,23 @@ with col2:
         <img src="data:image/png;base64,{apple}">
 
         <div class="nome">
-            🍎 Apple
+        🍎 Apple
         </div>
 
         <div class="desc">
-            Empresa multinacional criadora do iPhone e MacBook.
+        Empresa multinacional criadora do iPhone e MacBook.
         </div>
 
         <a class="botao"
-           href="https://www.apple.com/br/"
-           target="_blank">
-           Acessar
+        href="https://www.apple.com/br/"
+        target="_blank">
+        Acessar
         </a>
 
     </div>
     """, unsafe_allow_html=True)
 
-# ========= CARD 3 =========
+# ========= NETFLIX =========
 with col3:
     st.markdown(f"""
     <div class="card">
@@ -162,18 +163,18 @@ with col3:
         <img src="data:image/png;base64,{netflix}">
 
         <div class="nome">
-            🎬 Netflix
+        🎬 Netflix
         </div>
 
         <div class="desc">
-            Plataforma líder de filmes e séries online.
+        Plataforma líder de filmes e séries online.
         </div>
 
         <a class="botao"
-           href="https://www.netflix.com/br/"
-           target="_blank">
-           Acessar
+        href="https://www.netflix.com/br/"
+        target="_blank">
+        Acessar
         </a>
 
     </div>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True))
