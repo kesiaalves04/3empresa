@@ -1,6 +1,6 @@
 import streamlit as st
 
-# CONFIG
+# ================= CONFIG =================
 st.set_page_config(
     page_title="Empresas Parceiras",
     layout="wide"
@@ -12,47 +12,35 @@ st.markdown("""
 
 /* FUNDO */
 .stApp{
-    background-color: #0b1020;
+    background-color: #0B1020;
 }
 
 /* TITULO */
 h1{
-    color: white;
+    color: white !important;
     font-size: 50px !important;
     margin-bottom: 40px;
 }
 
-/* CARD */
-.card{
-    background-color: #161b2e;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
-    transition: 0.3s;
-    height: 100%;
-}
-
-/* EFEITO */
-.card:hover{
-    transform: translateY(-8px);
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.8);
-}
-
-/* TITULO CARD */
-.nome{
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
 /* TEXTO */
-.desc{
-    color: #d1d1d1;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-top: 10px;
-    margin-bottom: 25px;
+p{
+    color: #D1D5DB;
+}
+
+/* BOTÃO */
+div.stButton > button,
+div.stLinkButton > a {
+    background-color: #2563EB !important;
+    color: white !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+}
+
+/* IMAGEM */
+img{
+    border-radius: 15px;
 }
 
 </style>
@@ -64,77 +52,53 @@ st.title("🌐 Empresas Parceiras")
 # ================= COLUNAS =================
 col1, col2, col3 = st.columns(3)
 
-# =========================
-# SPACEX
-# =========================
+# ================= SPACEX =================
 with col1:
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
 
     st.image("spacex.png", use_container_width=True)
 
-    st.markdown("""
-    <div class="nome">🚀 SpaceX</div>
+    st.subheader("🚀 SpaceX")
 
-    <div class="desc">
+    st.write("""
     Empresa aeroespacial criada por Elon Musk.
     Atua no desenvolvimento de foguetes e viagens espaciais.
-    </div>
-    """, unsafe_allow_html=True)
+    """)
 
     st.link_button(
         "Acessar Site",
         "https://www.spacex.com/"
     )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# =========================
-# APPLE
-# =========================
+# ================= APPLE =================
 with col2:
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
 
     st.image("apple.png", use_container_width=True)
 
-    st.markdown("""
-    <div class="nome">🍎 Apple</div>
+    st.subheader("🍎 Apple")
 
-    <div class="desc">
+    st.write("""
     Empresa mundialmente conhecida pelos seus produtos tecnológicos,
     como iPhone, iPad e MacBook.
-    </div>
-    """, unsafe_allow_html=True)
+    """)
 
     st.link_button(
         "Acessar Site",
         "https://www.apple.com/br/"
     )
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# =========================
-# NETFLIX
-# =========================
+# ================= NETFLIX =================
 with col3:
-
-    st.markdown('<div class="card">', unsafe_allow_html=True)
 
     st.image("netflix.png", use_container_width=True)
 
-    st.markdown("""
-    <div class="nome">🎬 Netflix</div>
+    st.subheader("🎬 Netflix")
 
-    <div class="desc">
+    st.write("""
     Plataforma de streaming com filmes, séries e documentários
     assistidos no mundo inteiro.
-    </div>
-    """, unsafe_allow_html=True)
+    """)
 
     st.link_button(
         "Acessar Site",
         "https://www.netflix.com/br/"
     )
-
-    st.markdown("</div>", unsafe_allow_html=True)
