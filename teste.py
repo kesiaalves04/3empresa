@@ -1,23 +1,24 @@
 import streamlit as st
 import base64
 
-# CONFIG
+# ================= CONFIG =================
 st.set_page_config(
     page_title="Empresas Parceiras",
     layout="wide"
 )
 
-# ========= FUNÇÃO =========
+# ================= FUNÇÃO =================
 def get_base64_image(path):
     with open(path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-# ========= IMAGENS =========
+# ================= IMAGENS =================
 spacex = get_base64_image("spacex.png")
 apple = get_base64_image("iphone.png")
 netflix = get_base64_image("netflix.png")
+zap = get_base64_image("whatsapp.png")
 
-# ========= CSS =========
+# ================= CSS =================
 st.markdown("""
 <style>
 
@@ -25,32 +26,37 @@ st.markdown("""
     background-color: #0b1020;
 }
 
-/* TÍTULO */
+/* REMOVE MENU */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* TITULO */
 .titulo{
+    color: white;
     font-size: 52px;
     font-weight: bold;
-    color: white;
     margin-bottom: 5px;
 }
 
 .subtitulo{
-    color: #b3b3b3;
+    color: #b0b0b0;
     font-size: 18px;
     margin-bottom: 40px;
 }
 
 /* CARD */
 .card{
-    background: #161b2e;
-    border-radius: 20px;
+    background-color: #161b2e;
     padding: 18px;
-    transition: 0.3s;
+    border-radius: 20px;
     box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
 
+/* EFEITO HOVER */
 .card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.6);
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 30px rgba(0,0,0,0.7);
 }
 
 /* IMAGEM */
@@ -60,7 +66,7 @@ st.markdown("""
     margin-bottom: 15px;
 }
 
-/* NOME */
+/* TITULO CARD */
 .nome{
     color: white;
     font-size: 28px;
@@ -70,9 +76,9 @@ st.markdown("""
 
 /* DESCRIÇÃO */
 .desc{
-    color: #cfcfcf;
+    color: #d1d1d1;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 25px;
 }
 
@@ -90,10 +96,16 @@ st.markdown("""
     background-color: #1d4ed8;
 }
 
+/* WHATSAPP */
+.whats{
+    text-align:center;
+    margin-top:40px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
-# ========= TÍTULO =========
+# ================= TITULO =================
 st.markdown("""
 <div class="titulo">
 Empresas Parceiras -
@@ -104,10 +116,10 @@ Conheça algumas empresas de tecnologia
 </div>
 """, unsafe_allow_html=True)
 
-# ========= COLUNAS =========
+# ================= COLUNAS =================
 col1, col2, col3 = st.columns(3)
 
-# ========= SPACEX =========
+# ================= SPACEX =================
 with col1:
     st.markdown(f"""
     <div class="card">
@@ -131,7 +143,7 @@ with col1:
     </div>
     """, unsafe_allow_html=True)
 
-# ========= APPLE =========
+# ================= APPLE =================
 with col2:
     st.markdown(f"""
     <div class="card">
@@ -155,7 +167,7 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
-# ========= NETFLIX =========
+# ================= NETFLIX =================
 with col3:
     st.markdown(f"""
     <div class="card">
@@ -177,4 +189,18 @@ with col3:
         </a>
 
     </div>
-    """, unsafe_allow_html=True))
+    """, unsafe_allow_html=True)
+
+# ================= WHATSAPP =================
+st.markdown(f"""
+<div class="whats">
+
+<a href="https://wa.me/5583999999999" target="_blank">
+
+<img src="data:image/png;base64,{zap}"
+width="90">
+
+</a>
+
+</div>
+""", unsafe_allow_html=True)
